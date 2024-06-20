@@ -25,8 +25,8 @@ WORKDIR /app
 # Instale o 'serve' globalmente
 RUN npm install -g serve
 
-# Copie os arquivos compilados da etapa de build
-COPY --from=build /app/dist /app/dist
+# # Copie os arquivos compilados da etapa de build
+# COPY --from=build /app/dist /app/dist
 
 # Exponha a porta que o 'serve' usará
 EXPOSE 5000
