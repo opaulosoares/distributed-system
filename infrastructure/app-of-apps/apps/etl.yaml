@@ -1,33 +1,33 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: etl
-  namespace: argocd
-  labels:
     name: etl
+    namespace: argocd
+    labels:
+        name: etl
 spec:
-  project: default
+    project: default
 
-  source:
-    repoURL: https://github.com/GBrunelli/distributed-system
-    targetRevision: HEAD
-    path: ./services/etl
-    
-  destination:
-    name: in-cluster
-    namespace: etl
+    source:
+        repoURL: https://github.com/opaulosoares/distributed-system
+        targetRevision: HEAD
+        path: ./services/etl
 
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - Validate=false
-      - CreateNamespace=true
+    destination:
+        name: in-cluster
+        namespace: etl
 
-    retry:
-      limit: 10
-      backoff:
-        duration: 10s
-        factor: 2
-        maxDuration: 3m
+    syncPolicy:
+        automated:
+            prune: true
+            selfHeal: true
+        syncOptions:
+            - Validate=false
+            - CreateNamespace=true
+
+        retry:
+            limit: 10
+            backoff:
+                duration: 10s
+                factor: 2
+                maxDuration: 3m
