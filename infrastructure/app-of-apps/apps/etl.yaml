@@ -9,7 +9,7 @@ spec:
     project: default
 
     source:
-        repoURL: https://github.com/opaulosoares/distributed-system
+        repoURL: https://github.com/GBrunelli/distributed-system
         targetRevision: HEAD
         path: ./services/etl
 
